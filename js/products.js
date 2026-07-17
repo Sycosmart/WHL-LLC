@@ -55,11 +55,80 @@ async function fetchProducts() {
   return response.json();
 }
 
-/** Homepage: show only products flagged "featured": true, max 4. */
+/**
+ * Homepage "Featured Blinds" gallery: a 3-column bento grid of large photo
+ * tiles (product name overlaid on the image) with one text-only promo
+ * tile mixed in at the 3rd position — styled after a big-box retailer's
+ * homepage gallery, adapted to WHL's data-driven catalog. Shows up to 5
+ * real products flagged "featured": true, plus the promo tile.
+ */
 function renderFeatured(container, products) {
-  const featured = products.filter((p) => p.featured).slice(0, 4);
+  const featured = products.filter((p) => p.featured).slice(0, 5);
   container.innerHTML = "";
-  featured.forEach((product) => container.appendChild(buildProductCard(product)));
+
+  featured.slice(0, 2).forEach((product) => container.appendChild(buildGalleryTile(product)));
+  container.appendChild(buildPromoTile());
+  featured.slice(2).forEach((product) => container.appendChild(buildGalleryTile(product)));
+}
+
+/** A large photo tile with the product name overlaid at the bottom. */
+function buildGalleryTile(product) {
+  const tile = document.createElement("a");
+  tile.className = "gallery-tile";
+  tile.href = "products.html";
+
+  const img = document.createElement("img");
+  img.src = product.image;
+  img.alt = product.name;
+  img.loading = "lazy";
+  tile.appendChild(img);
+
+  const overlay = document.createElement("div");
+  overlay.className = "gallery-tile__overlay";
+  tile.appendChild(overlay);
+
+  const label = document.createElement("h3");
+  label.className = "gallery-tile__label";
+  label.textContent = product.name;
+  tile.appendChild(label);
+
+  return tile;
+}
+
+/**
+ * The one non-photo tile mixed into the featured gallery. Copy here is
+ * hardcoded (not from products.json) since it's a promo message, not a
+ * product — edit the text directly in this function to change it.
+ */
+function buildPromoTile() {
+  const tile = document.createElement("div");
+  tile.className = "gallery-tile gallery-tile--promo";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Custom Fit, Every Window";
+  tile.appendChild(heading);
+
+  const text = document.createElement("p");
+  text.textContent = "Free measuring and professional installation included with every order.";
+  tile.appendChild(text);
+
+  const actions = document.createElement("div");
+  actions.className = "gallery-tile--promo__actions";
+
+  const consult = document.createElement("a");
+  consult.className = "btn btn--primary";
+  consult.href = buildConsultationMailto();
+  consult.textContent = "Free Consultation";
+  actions.appendChild(consult);
+
+  const learnMore = document.createElement("a");
+  learnMore.className = "btn btn--secondary";
+  learnMore.href = "products.html";
+  learnMore.textContent = "Learn More";
+  actions.appendChild(learnMore);
+
+  tile.appendChild(actions);
+  return tile;
 }
 
 /** Products page: show everything, with category filter pills. */

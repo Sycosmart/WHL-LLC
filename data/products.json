@@ -42,7 +42,7 @@
     "description": "App and voice-controlled blinds that open and close on schedule or on command.",
     "priceLabel": "Starting at $249",
     "image": "assets/images/products/motorized-smart.svg",
-    "featured": false
+    "featured": true
   },
   {
     "id": "room-darkening",

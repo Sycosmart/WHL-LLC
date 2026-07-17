@@ -117,23 +117,24 @@
     </section>
 
     <!--
-      Featured blinds. This grid is filled in by js/products.js, which
-      reads data/products.json and shows up to 4 products flagged
-      "featured": true. Do not hand-edit product cards here — edit the
-      JSON file instead. See docs/ADDING_PRODUCTS.md.
+      Featured blinds gallery. Rendered by js/products.js (renderFeatured)
+      as a 3-column grid of large photo tiles with the name overlaid, plus
+      one text-only promo tile mixed in — do not hand-edit tiles here,
+      edit data/products.json (or the promo copy in buildPromoTile() inside
+      js/products.js) instead. See docs/ADDING_PRODUCTS.md.
     -->
     <section class="section section--white">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Popular Styles</p>
-          <h2>Featured Blinds</h2>
-          <p>A few customer favorites — see the full catalog for everything we offer.</p>
+          <h2>Most-Loved Styles for Real Homes</h2>
+          <p>Chosen by Maryland homeowners for their look, durability, and fit.</p>
         </div>
-        <div id="featured-products" class="grid grid--4">
+        <div id="featured-products" class="grid grid--3">
           <p class="empty-state">Loading products&hellip;</p>
         </div>
         <div style="text-align:center; margin-top: var(--space-lg);">
-          <a href="products.html" class="btn btn--secondary">View All Blinds</a>
+          <a href="products.html" class="btn btn--secondary">See More Products</a>
         </div>
       </div>
     </section>

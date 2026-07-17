@@ -569,6 +569,85 @@ p {
   gap: var(--space-xs);
 }
 
+/* -------------------------------------------------------------------------
+   Homepage style gallery (bento-style grid of large photo tiles with the
+   product name overlaid at the bottom, plus one text-only promo tile).
+   Used only on the homepage's "Featured Blinds" section — the full
+   catalog on products.html keeps using .product-card, which shows price
+   and description too.
+   ------------------------------------------------------------------------- */
+.gallery-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.gallery-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-tile:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(47, 78, 61, 0.85) 0%,
+    rgba(47, 78, 61, 0.15) 55%,
+    rgba(47, 78, 61, 0) 100%
+  );
+}
+
+.gallery-tile__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-md);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-cream);
+}
+
+/* The one non-photo tile in the grid: a promo card in the same footprint */
+.gallery-tile--promo {
+  background-color: var(--color-sage-light);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-tile--promo h3 {
+  margin-bottom: var(--space-xs);
+}
+
+.gallery-tile--promo p {
+  margin-bottom: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.gallery-tile--promo .btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+}
+
+.gallery-tile--promo__actions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
 /* Simple icon/tile card used for "Why choose WHL" and quick-action rows */
 .tile-card {
   text-align: center;

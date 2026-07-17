@@ -1,0 +1,9 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#E4EFE3"/>
+  <rect x="24" y="24" width="592" height="432" fill="none" stroke="#A9CAAE" stroke-width="2" stroke-dasharray="10 8"/>
+  <g fill="#4C7A63" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="320" y="230" font-size="30" font-weight="700">Room-Darkening</text>
+    <text x="320" y="270" font-size="30" font-weight="700">Blinds</text>
+  </g>
+  <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#2F4E3D">Product photo placeholder â€” replace me</text>
+</svg>

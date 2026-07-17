@@ -1,0 +1,56 @@
+[
+  {
+    "id": "classic-faux-wood",
+    "name": "Classic Faux Wood Blinds",
+    "category": "Blinds",
+    "description": "Durable, moisture-resistant faux wood blinds that give the warm look of real wood — ideal for kitchens and bathrooms.",
+    "priceLabel": "Starting at $99",
+    "image": "assets/images/products/classic-faux-wood.svg",
+    "featured": true
+  },
+  {
+    "id": "premium-aluminum",
+    "name": "Premium Aluminum Blinds",
+    "category": "Blinds",
+    "description": "Slim, lightweight slats in a wide range of finishes for a clean, modern look in any room.",
+    "priceLabel": "Starting at $79",
+    "image": "assets/images/products/premium-aluminum.svg",
+    "featured": true
+  },
+  {
+    "id": "vertical-sliding-door",
+    "name": "Vertical Blinds for Sliding Doors",
+    "category": "Blinds",
+    "description": "Purpose-built vertical blinds sized for patio and sliding glass doors, with smooth side-to-side operation.",
+    "priceLabel": "Starting at $129",
+    "image": "assets/images/products/vertical-sliding-door.svg",
+    "featured": true
+  },
+  {
+    "id": "cordless-blinds",
+    "name": "Cordless Blinds",
+    "category": "Blinds",
+    "description": "A clean, cord-free lift system that's safer around kids and pets and looks tidier on the window.",
+    "priceLabel": "Starting at $109",
+    "image": "assets/images/products/cordless-blinds.svg",
+    "featured": true
+  },
+  {
+    "id": "motorized-smart",
+    "name": "Motorized Smart Blinds",
+    "category": "Blinds",
+    "description": "App and voice-controlled blinds that open and close on schedule or on command.",
+    "priceLabel": "Starting at $249",
+    "image": "assets/images/products/motorized-smart.svg",
+    "featured": false
+  },
+  {
+    "id": "room-darkening",
+    "name": "Room-Darkening Blinds",
+    "category": "Blinds",
+    "description": "Tight-fitting slats designed to block outside light for bedrooms, nurseries, and media rooms.",
+    "priceLabel": "Starting at $119",
+    "image": "assets/images/products/room-darkening.svg",
+    "featured": false
+  }
+]

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blinds Catalog | WHL LLC</title>
+  <meta name="description" content="Browse WHL LLC's full catalog of custom blinds, and book a free consultation to get started." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/images/logo/whl-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <img src="assets/images/logo/whl-logo.svg" alt="WHL LLC logo" />
+        <span class="brand-text">WHL<span>Window Treatments Co.</span></span>
+      </a>
+      <nav class="main-nav" data-open="false">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Blinds</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+14105550123" class="header-phone">(410) 555-0123</a>
+        <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary">Free Consultation</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow">Our Catalog</p>
+        <h1>Blinds Built for Maryland Homes</h1>
+        <p>Filter by category or browse everything we offer. Book a free consultation on any style.</p>
+      </div>
+    </section>
+
+    <!--
+      Full catalog. Rendered entirely by js/products.js from
+      data/products.json — #filter-bar gets one button per category
+      found in the JSON, and #product-grid gets one card per product.
+      To add/remove a product or category, edit the JSON file only.
+      See docs/ADDING_PRODUCTS.md.
+    -->
+    <section class="section section--white">
+      <div class="container">
+        <div id="filter-bar" class="filter-bar"></div>
+        <div id="product-grid" class="grid grid--3">
+          <p class="empty-state">Loading products&hellip;</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Don't See What You're Looking For?</h2>
+        <p>We can source and fit blinds beyond this catalog — book a free consultation and let's talk.</p>
+        <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--light">Free Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-text" style="color: var(--color-cream);">WHL <span style="color: var(--color-sage);">Window Treatments Co.</span></div>
+          <p>Nature-inspired window treatments, proudly serving homes across Maryland.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Blinds</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+14105550123">(410) 555-0123</a></li>
+            <li><a href="mailto:info@whlllc.com">info@whlllc.com</a></li>
+            <li>Serving Maryland, USA</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WHL LLC. All rights reserved.</p>
+        <p>Placeholder contact details — replace before launch. See docs/README.md.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

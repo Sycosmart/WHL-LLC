@@ -1,0 +1,19 @@
+<!--
+  PLACEHOLDER hero image — replace with a real lifestyle photo of installed
+  blinds (see docs/README.md, "Replacing photos"). Recommended size:
+  roughly 900x700px or larger, JPG or WEBP, then swap the <img> src in
+  index.html to point at your new file.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#A9CAAE"/>
+  <rect x="60" y="60" width="780" height="580" fill="#FBF7EA" opacity="0.15"/>
+  <g stroke="#2F4E3D" stroke-width="4" fill="none" opacity="0.5">
+    <line x1="150" y1="120" x2="750" y2="120"/>
+    <line x1="150" y1="180" x2="750" y2="180"/>
+    <line x1="150" y1="240" x2="750" y2="240"/>
+    <line x1="150" y1="300" x2="750" y2="300"/>
+    <line x1="150" y1="360" x2="750" y2="360"/>
+  </g>
+  <text x="450" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#2F4E3D" font-weight="700">Hero photo placeholder</text>
+  <text x="450" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#2F4E3D">Replace with a lifestyle photo of installed blinds</text>
+</svg>

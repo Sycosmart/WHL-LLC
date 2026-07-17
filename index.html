@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHL LLC | Window Treatments in Maryland</title>
+  <meta name="description" content="WHL LLC designs and installs custom blinds for homes across Maryland. Book a free consultation today." />
+
+  <!-- Google Fonts: serif for headings (matches the logo), sans-serif for body copy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/images/logo/whl-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!--
+    Shared site header. This exact block is repeated at the top of every
+    page (index/products/about/contact) since this is plain HTML with no
+    templating. If you edit the nav or logo, update it in all four files.
+    See docs/ARCHITECTURE.md for why, and when it's worth switching to a
+    templating tool instead.
+  -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <img src="assets/images/logo/whl-logo.svg" alt="WHL LLC logo" />
+        <span class="brand-text">WHL<span>Window Treatments Co.</span></span>
+      </a>
+      <nav class="main-nav" data-open="false">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Blinds</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+14105550123" class="header-phone">(410) 555-0123</a>
+        <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary">Free Consultation</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero: primary headline + two CTAs + hero image -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Serving Maryland Homes</p>
+          <h1 class="hero__title">Custom Blinds, Inspired by Nature</h1>
+          <p class="hero__text">
+            WHL LLC brings warm, nature-inspired window treatments to homes
+            across Maryland — from selection to measuring to professional
+            installation, all guided by a free in-home consultation.
+          </p>
+          <div class="hero__actions">
+            <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary">Free Consultation</a>
+            <a href="products.html" class="btn btn--secondary">View Blinds</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <img src="assets/images/hero/hero-home.svg" alt="Living room with newly installed blinds (placeholder image)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick tiles: fast answers to "how do I get started" -->
+    <section class="section section--tight">
+      <div class="container grid grid--3">
+        <div class="card tile-card">
+          <h3>Free In-Home Consultation</h3>
+          <p>We visit your home, measure your windows, and recommend the right fit.</p>
+        </div>
+        <div class="card tile-card">
+          <h3>Professional Installation</h3>
+          <p>Our team handles setup so your new blinds are ready to use the same day.</p>
+        </div>
+        <div class="card tile-card">
+          <h3>Locally Owned in Maryland</h3>
+          <p>A Maryland business proud to serve neighbors across the state.</p>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      Featured blinds. This grid is filled in by js/products.js, which
+      reads data/products.json and shows up to 4 products flagged
+      "featured": true. Do not hand-edit product cards here — edit the
+      JSON file instead. See docs/ADDING_PRODUCTS.md.
+    -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Popular Styles</p>
+          <h2>Featured Blinds</h2>
+          <p>A few customer favorites — see the full catalog for everything we offer.</p>
+        </div>
+        <div id="featured-products" class="grid grid--4">
+          <p class="empty-state">Loading products&hellip;</p>
+        </div>
+        <div style="text-align:center; margin-top: var(--space-lg);">
+          <a href="products.html" class="btn btn--secondary">View All Blinds</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process steps -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">How It Works</p>
+          <h2>From Consultation to Installed</h2>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="process-step__number">1</div>
+            <h3>We Consult</h3>
+            <p>Book your free in-home consultation and tell us your style.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__number">2</div>
+            <h3>We Measure</h3>
+            <p>Our team measures every window for a precise fit.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__number">3</div>
+            <h3>We Install</h3>
+            <p>Professional installation, scheduled around you.</p>
+          </div>
+          <div class="process-step">
+            <div class="process-step__number">4</div>
+            <h3>You Relax</h3>
+            <p>Enjoy new blinds built to last, backed by our team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="section section--tight section--white">
+      <div class="container trust-strip">
+        <div class="trust-stat">
+          <div class="trust-stat__number">Maryland</div>
+          <div class="trust-stat__label">Locally Owned &amp; Operated</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-stat__number">Free</div>
+          <div class="trust-stat__label">In-Home Consultations</div>
+        </div>
+        <div class="trust-stat">
+          <div class="trust-stat__number">Pro</div>
+          <div class="trust-stat__label">Measuring &amp; Installation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial (placeholder — replace with real customer quotes) -->
+    <section class="section">
+      <div class="container">
+        <div class="card testimonial-card" style="max-width:640px; margin:0 auto; text-align:center;">
+          <p class="testimonial-card__quote">
+            "Placeholder testimonial — replace with a real customer quote once available."
+          </p>
+          <p class="testimonial-card__author">— A Maryland Homeowner</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band before the footer -->
+    <section class="cta-band">
+      <div class="container">
+        <h2>Ready for New Blinds?</h2>
+        <p>Book your free, no-obligation consultation and let's talk about your windows.</p>
+        <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--light">Free Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!--
+    Shared site footer, repeated on every page (see note on the header
+    above about why this is duplicated in plain HTML).
+  -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-text" style="color: var(--color-cream);">WHL <span style="color: var(--color-sage);">Window Treatments Co.</span></div>
+          <p>Nature-inspired window treatments, proudly serving homes across Maryland.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Blinds</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+14105550123">(410) 555-0123</a></li>
+            <li><a href="mailto:info@whlllc.com">info@whlllc.com</a></li>
+            <li>Serving Maryland, USA</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WHL LLC. All rights reserved.</p>
+        <p>Placeholder contact details — replace before launch. See docs/README.md.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

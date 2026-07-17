@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Free Consultation | WHL LLC</title>
+  <meta name="description" content="Book a free consultation with WHL LLC or reach out with questions about our Maryland window treatment services." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/images/logo/whl-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <img src="assets/images/logo/whl-logo.svg" alt="WHL LLC logo" />
+        <span class="brand-text">WHL<span>Window Treatments Co.</span></span>
+      </a>
+      <nav class="main-nav" data-open="false">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Blinds</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+14105550123" class="header-phone">(410) 555-0123</a>
+        <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary">Free Consultation</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <p class="eyebrow">Get In Touch</p>
+        <h1>Book Your Free Consultation</h1>
+        <p>Tell us a bit about your project and we'll follow up to schedule your free in-home consultation.</p>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container grid grid--2">
+
+        <!--
+          This form has no backend. Submitting it opens the visitor's email
+          client with the message pre-filled (handled by setupContactForm()
+          in js/main.js). This is a zero-setup placeholder for launch — see
+          docs/README.md, "Replacing the consultation email", for how to
+          connect a real form service later.
+        -->
+        <div class="card" style="padding: var(--space-lg);">
+          <h2 style="margin-bottom: var(--space-md);">Request a Consultation</h2>
+          <form id="contact-form">
+            <div class="form-field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            <div class="form-field">
+              <label for="message">Tell Us About Your Project</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Send Request</button>
+          </form>
+        </div>
+
+        <div>
+          <h2>Other Ways to Reach Us</h2>
+          <p style="margin-top: var(--space-sm);">
+            [Placeholder contact details — replace phone, email, and address
+            with WHL LLC's real information before launch.]
+          </p>
+          <ul style="margin-top: var(--space-md); display:flex; flex-direction:column; gap: var(--space-sm);">
+            <li><strong style="color:var(--color-deep);">Phone:</strong> <a href="tel:+14105550123">(410) 555-0123</a></li>
+            <li><strong style="color:var(--color-deep);">Email:</strong> <a href="mailto:info@whlllc.com">info@whlllc.com</a></li>
+            <li><strong style="color:var(--color-deep);">Service Area:</strong> Maryland, USA</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-text" style="color: var(--color-cream);">WHL <span style="color: var(--color-sage);">Window Treatments Co.</span></div>
+          <p>Nature-inspired window treatments, proudly serving homes across Maryland.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Blinds</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+14105550123">(410) 555-0123</a></li>
+            <li><a href="mailto:info@whlllc.com">info@whlllc.com</a></li>
+            <li>Serving Maryland, USA</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul class="social-links">
+            <li><a href="#" aria-label="Facebook">Facebook</a></li>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 WHL LLC. All rights reserved.</p>
+        <p>Placeholder contact details — replace before launch. See docs/README.md.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

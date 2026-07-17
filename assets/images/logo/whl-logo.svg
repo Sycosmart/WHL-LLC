@@ -1,0 +1,15 @@
+<!--
+  PLACEHOLDER LOGO — replace this file with your real logo.
+  See docs/README.md, "Replacing the logo", for exact steps.
+  Recommended: export your logo as whl-logo.png (transparent background,
+  at least 200x200px) and drop it in this same folder, then update the
+  <img src="assets/images/logo/whl-logo.svg"> references in the HTML
+  files to point at whl-logo.png instead.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" rx="16" fill="#FBF7EA"/>
+  <text x="100" y="95" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" fill="#4C7A63">WHL</text>
+  <text x="100" y="122" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="11" letter-spacing="2" fill="#2F4E3D">WINDOW TREATMENTS</text>
+  <line x1="55" y1="140" x2="145" y2="140" stroke="#A9CAAE" stroke-width="2"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#4C7A63">Inspired by Nature</text>
+</svg>

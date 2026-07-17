@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileNav();
   highlightActiveNavLink();
   setupContactForm();
+  setupCarousels();
 });
 
 function setupMobileNav() {
@@ -77,5 +78,32 @@ function setupContactForm() {
     )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
+  });
+}
+
+/**
+ * Wires up the prev/next arrow buttons on any ".gallery-carousel" (the
+ * homepage's featured styles section, see index.html and
+ * js/products.js). The tiles themselves scroll natively via CSS
+ * (overflow-x + scroll-snap) — the buttons just nudge that scroll
+ * position, so dragging/swiping the row still works even without them.
+ * Wired up once at load time, independent of when products.js finishes
+ * fetching and inserting the actual tiles.
+ */
+function setupCarousels() {
+  document.querySelectorAll(".gallery-carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".gallery-track");
+    const prevBtn = carousel.querySelector(".carousel-arrow--prev");
+    const nextBtn = carousel.querySelector(".carousel-arrow--next");
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const scrollByOneTile = (direction) => {
+      const tile = track.querySelector(".gallery-tile");
+      const tileWidth = tile ? tile.getBoundingClientRect().width : track.clientWidth * 0.8;
+      track.scrollBy({ left: direction * (tileWidth + 16), behavior: "smooth" });
+    };
+
+    prevBtn.addEventListener("click", () => scrollByOneTile(-1));
+    nextBtn.addEventListener("click", () => scrollByOneTile(1));
   });
 }

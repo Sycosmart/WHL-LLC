@@ -117,11 +117,14 @@
     </section>
 
     <!--
-      Featured blinds gallery. Rendered by js/products.js (renderFeatured)
-      as a 3-column grid of large photo tiles with the name overlaid, plus
-      one text-only promo tile mixed in — do not hand-edit tiles here,
-      edit data/products.json (or the promo copy in buildPromoTile() inside
-      js/products.js) instead. See docs/ADDING_PRODUCTS.md.
+      Featured styles carousel. Rendered by js/products.js
+      (renderFeatured) as a horizontally-scrolling row of large photo
+      tiles — hover or focus a tile to reveal its description and two
+      buttons. One promo tile is mixed in alongside the real products.
+      Do not hand-edit tiles here: edit data/products.json (or the promo
+      copy in buildPromoTile() inside js/products.js) instead. See
+      docs/ADDING_PRODUCTS.md. The prev/next arrows are wired up by
+      setupCarousels() in js/main.js.
     -->
     <section class="section section--white">
       <div class="container">
@@ -130,8 +133,20 @@
           <h2>Most-Loved Styles for Real Homes</h2>
           <p>Chosen by Maryland homeowners for their look, durability, and fit.</p>
         </div>
-        <div id="featured-products" class="grid grid--3">
-          <p class="empty-state">Loading products&hellip;</p>
+        <div class="gallery-carousel">
+          <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="Scroll to previous styles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div id="featured-products" class="gallery-track">
+            <p class="empty-state">Loading products&hellip;</p>
+          </div>
+          <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="Scroll to next styles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
         </div>
         <div style="text-align:center; margin-top: var(--space-lg);">
           <a href="products.html" class="btn btn--secondary">See More Products</a>

@@ -570,18 +570,68 @@ p {
 }
 
 /* -------------------------------------------------------------------------
-   Homepage style gallery (bento-style grid of large photo tiles with the
-   product name overlaid at the bottom, plus one text-only promo tile).
-   Used only on the homepage's "Featured Blinds" section — the full
-   catalog on products.html keeps using .product-card, which shows price
-   and description too.
+   Homepage "Featured Styles" carousel: a horizontally-scrolling row of
+   large photo tiles. Each tile always shows its name; hovering (or
+   focusing, for keyboard users) reveals a description and two buttons
+   over the photo. Used only on the homepage — the full catalog on
+   products.html keeps using .product-card instead, which shows price and
+   description without needing a hover.
    ------------------------------------------------------------------------- */
+.gallery-carousel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.gallery-track {
+  display: flex;
+  gap: var(--space-md);
+  flex: 1;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-xs);
+  scrollbar-width: none; /* Firefox: hide scrollbar, native drag/touch scroll still works */
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari: same as above */
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  color: var(--color-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: var(--color-sage-light);
+  box-shadow: var(--shadow-card);
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
 .gallery-tile {
   position: relative;
+  flex: 0 0 auto;
+  width: min(300px, 78vw);
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  scroll-snap-align: start;
 }
 
 .gallery-tile img {
@@ -593,7 +643,8 @@ p {
   transition: transform 0.4s ease;
 }
 
-.gallery-tile:hover img {
+.gallery-tile:hover img,
+.gallery-tile:focus-within img {
   transform: scale(1.06);
 }
 
@@ -602,50 +653,58 @@ p {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(47, 78, 61, 0.85) 0%,
+    rgba(47, 78, 61, 0.9) 0%,
     rgba(47, 78, 61, 0.15) 55%,
     rgba(47, 78, 61, 0) 100%
   );
+  transition: background-color 0.25s ease;
 }
 
-.gallery-tile__label {
+.gallery-tile__content {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   padding: var(--space-md);
+}
+
+.gallery-tile__label {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--color-cream);
 }
 
-/* The one non-photo tile in the grid: a promo card in the same footprint */
-.gallery-tile--promo {
-  background-color: var(--color-sage-light);
-  padding: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Description + buttons: hidden by default, revealed on hover/focus. */
+.gallery-tile__hover {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  overflow: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, max-height 0.25s ease;
 }
 
-.gallery-tile--promo h3 {
-  margin-bottom: var(--space-xs);
+.gallery-tile:hover .gallery-tile__hover,
+.gallery-tile:focus-within .gallery-tile__hover {
+  max-height: 160px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.gallery-tile--promo p {
-  margin-bottom: var(--space-md);
-  font-size: 0.95rem;
-}
-
-.gallery-tile--promo .btn {
-  padding: 0.6rem 1.2rem;
+.gallery-tile__hover p {
+  color: var(--color-sage-light);
   font-size: 0.85rem;
+  margin: 0.5rem 0 var(--space-sm);
 }
 
-.gallery-tile--promo__actions {
+.gallery-tile__actions {
   display: flex;
   gap: var(--space-xs);
   flex-wrap: wrap;
+}
+
+.gallery-tile__actions .btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
 }
 
 /* Simple icon/tile card used for "Why choose WHL" and quick-action rows */

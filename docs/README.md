@@ -48,31 +48,46 @@ browser:
 This local-server requirement disappears once the site is hosted on
 GitHub Pages (or any real web server) — `fetch()` works normally there.
 
-## Replacing the Logo
+## The Logo Files
 
-The current logo at `assets/images/logo/whl-logo.svg` is a text
-placeholder. To use the real WHL logo:
+`assets/images/logo/` has two files, both derived from the real WHL
+logo:
 
-1. Export your logo as a PNG or SVG (transparent background recommended,
-   at least 200×200px).
-2. Save it into `assets/images/logo/` (e.g. `whl-logo.png`).
-3. In each HTML file (`index.html`, `products.html`, `about.html`,
-   `contact.html`), find:
-   ```html
-   <img src="assets/images/logo/whl-logo.svg" alt="WHL LLC logo" />
-   ```
-   and change the `src` to your new filename, e.g.
-   `assets/images/logo/whl-logo.png`. Also update the `<link rel="icon" ...>`
-   line in each page's `<head>` the same way if you want the new logo as
-   the browser tab icon too.
+- **`whl-logo-full.jpg`** — the full lockup (deer/curtain mark + "WHL
+  Window Treatments Company" + tagline), used large on `about.html`
+  where there's room for the whole thing to be legible.
+- **`whl-icon.png`** — just the deer/curtain mark, cropped out of the
+  full logo and padded to a square (see
+  `scripts/crop-logo-icon.ps1` for exactly how, if you ever need to
+  redo the crop with a different logo file). Used in the compact
+  header (next to the "WHL / Window Treatments Co." text) and as the
+  browser tab favicon, where the full lockup's small text wouldn't be
+  legible at that size.
+
+Both have a cream background that matches the site's `--color-cream`
+design token almost exactly, so they blend into the header/page
+background without looking like a boxed-in image.
+
+**To replace the logo again later** (e.g. a redesigned version):
+
+1. Save the new full logo into `assets/images/logo/` (JPG or PNG).
+2. Re-run `scripts/crop-logo-icon.ps1` after updating the `$srcPath`
+   variable inside it to point at your new file (and re-tune the crop
+   `Rectangle` coordinates by eye — open the script's output PNG,
+   check it looks right, adjust, and re-run).
+3. Update the `<img src="...">` on `about.html` if you changed the
+   full logo's filename.
 
 ## Replacing Photos
 
-- **Hero/banner images**: replace `assets/images/hero/hero-home.svg` with
-  a real photo (JPG or WEBP recommended, roughly 900×700px or larger),
-  keeping the same filename, or use a new filename and update the
-  `<img src="...">` reference in `about.html`. (The homepage hero uses a
-  video instead — see below.)
+- **About page image**: currently shows the full logo
+  (`whl-logo-full.jpg`) — replace with a real team/showroom photo by
+  changing the `<img src="...">` in `about.html`'s "Rooted in Maryland"
+  section (JPG or WEBP recommended, roughly 900×700px or larger).
+- **Homepage promo tile image**: `assets/images/hero/promo-consultation.svg`
+  is a placeholder graphic behind the gallery's "Custom Fit, Every
+  Window" tile — replace it by changing the `image` value inside
+  `buildPromoTile()` in `js/products.js`.
 - **Product photos**: see [ADDING_PRODUCTS.md](./ADDING_PRODUCTS.md) —
   each product's photo is referenced from `data/products.json`, not
   hardcoded in HTML.

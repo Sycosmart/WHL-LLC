@@ -1,0 +1,19 @@
+<!--
+  PLACEHOLDER image for the homepage gallery's promo tile (the
+  "Custom Fit, Every Window" tile — see buildPromoTile() in
+  js/products.js). Unlike the product placeholders, this one has no
+  baked-in text, since the tile's real heading/description/buttons are
+  already drawn on top by HTML/CSS. Replace with a real lifestyle photo
+  whenever convenient — see docs/README.md, "Replacing Photos".
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <rect width="640" height="640" fill="#A9CAAE"/>
+  <rect width="640" height="640" fill="#4C7A63" opacity="0.25"/>
+  <g stroke="#2F4E3D" stroke-width="3" fill="none" opacity="0.6">
+    <line x1="180" y1="150" x2="180" y2="490"/>
+    <line x1="460" y1="150" x2="460" y2="490"/>
+    <line x1="180" y1="150" x2="460" y2="150"/>
+    <path d="M220 170 C 220 260, 260 300, 220 400 C 260 460, 220 480, 240 490" />
+    <path d="M420 170 C 420 260, 380 300, 420 400 C 380 460, 420 480, 400 490" />
+  </g>
+</svg>

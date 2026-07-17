@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="assets/images/logo/whl-logo.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/images/logo/whl-icon.png" type="image/png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -37,7 +37,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
-        <img src="assets/images/logo/whl-logo.svg" alt="WHL LLC logo" />
+        <img src="assets/images/logo/whl-icon.png" alt="WHL LLC logo" />
         <span class="brand-text">WHL<span>Window Treatments Co.</span></span>
       </a>
       <nav class="main-nav" data-open="false">
@@ -47,6 +47,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+          <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary nav-cta-mobile">Free Consultation</a>
       </nav>
       <div class="header-actions">
         <a href="tel:+14105550123" class="header-phone">(410) 555-0123</a>
@@ -65,9 +66,11 @@
     <!--
       Big video hero. The video autoplays muted/looped as a background —
       required by browsers for autoplay to be allowed without a user click.
-      `poster` shows while the video downloads (and if video can't load).
-      To swap the video later: replace assets/video/hero-curtains.mp4 and
-      update the <source> below. See docs/README.md, "Replacing photos".
+      No `poster` image is set: the section's own background-color (see
+      .hero--video in css/styles.css) shows while the video downloads
+      instead. To swap the video later: replace
+      assets/video/hero-curtains.mp4 and update the <source> below. See
+      docs/README.md, "Replacing Homepage Videos".
     -->
     <section class="hero hero--video">
       <video
@@ -76,7 +79,6 @@
         muted
         loop
         playsinline
-        poster="assets/images/hero/hero-home.svg"
       >
         <source src="assets/video/hero-curtains.mp4" type="video/mp4" />
       </video>
@@ -203,7 +205,6 @@
         muted
         loop
         playsinline
-        poster="assets/images/hero/hero-home.svg"
       >
         <source src="assets/video/curtains-motion.mp4" type="video/mp4" />
       </video>

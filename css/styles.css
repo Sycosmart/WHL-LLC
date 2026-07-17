@@ -74,6 +74,9 @@ body {
   background-color: var(--color-cream);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Safety net against any element that miscalculates its width on a
+     narrow phone screen and pokes past the viewport edge. */
+  overflow-x: hidden;
 }
 
 img {
@@ -1043,6 +1046,40 @@ p {
 }
 
 @media (max-width: 720px) {
+  /* Shrink the header itself so logo + CTA + hamburger all fit on a
+     phone-width screen without wrapping or overflowing horizontally. */
+  :root {
+    --header-height: 64px;
+  }
+
+  .brand img {
+    height: 38px;
+  }
+
+  .brand-text {
+    font-size: 0.95rem;
+  }
+
+  /* The "Window Treatments Co." subtitle is the first thing to go —
+     the icon + "WHL" alone is enough to identify the brand at this size. */
+  .brand-text span {
+    display: none;
+  }
+
+  .header-actions {
+    gap: var(--space-sm);
+  }
+
+  .header-actions .btn--primary {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+
   .main-nav {
     position: fixed;
     inset: var(--header-height) 0 0 0;
@@ -1065,6 +1102,15 @@ p {
     gap: var(--space-sm);
   }
 
+  /* A full-size "Free Consultation" button inside the slide-out menu,
+     since the header's own copy shrinks to fit next to the logo. Only
+     one is ever visible at a time — see .nav-cta-mobile below. */
+  .nav-cta-mobile {
+    display: block;
+    width: 100%;
+    margin-top: var(--space-md);
+  }
+
   .header-phone {
     display: none;
   }
@@ -1085,5 +1131,32 @@ p {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* The utility topbar's two messages don't both fit on one line at
+     phone widths — stack them instead of letting them overflow. */
+  .topbar__inner {
+    flex-direction: column;
+    gap: 0.15rem;
+    text-align: center;
+    padding: 0.5rem var(--space-sm);
+  }
+}
+
+@media (min-width: 721px) {
+  /* Hidden on desktop/tablet: the header's own "Free Consultation"
+     button already has room there. */
+  .nav-cta-mobile {
+    display: none;
   }
 }

@@ -160,7 +160,7 @@ function buildPromoTile() {
   return buildGalleryTile({
     name: "Custom Fit, Every Window",
     description: "Free measuring and professional installation included with every order.",
-    image: "assets/images/hero/hero-home.svg",
+    image: "assets/images/hero/promo-consultation.svg",
     primaryLabel: "Free Consultation",
     primaryHref: buildConsultationMailto(),
     secondaryLabel: "Learn More",

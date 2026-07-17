@@ -186,6 +186,45 @@
       </div>
     </section>
 
+    <!--
+      Cinematic video interlude: a quieter, quote-driven moment (as
+      opposed to the busier top hero) using the second uploaded video.
+      Muted/looped for the same autoplay reasons as the hero video, but
+      with a visible play/pause toggle (setupVideoToggles() in
+      js/main.js) so visitors can stop the motion if they prefer —
+      required for accessibility since it loops longer than 5 seconds.
+      To swap the video or quote, edit the <source> and
+      .video-feature__quote text directly below.
+    -->
+    <section class="video-feature">
+      <video
+        class="video-feature__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/images/hero/hero-home.svg"
+      >
+        <source src="assets/video/curtains-motion.mp4" type="video/mp4" />
+      </video>
+      <div class="video-feature__overlay"></div>
+      <div class="container video-feature__content">
+        <p class="video-feature__quote">
+          "Every window tells a story — let the right blinds write yours."
+        </p>
+        <p class="video-feature__credit">WHL LLC &middot; Maryland</p>
+        <button
+          type="button"
+          class="video-feature__toggle"
+          aria-pressed="true"
+          aria-label="Pause background video"
+        >
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" /></svg>
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20" /></svg>
+        </button>
+      </div>
+    </section>
+
     <!-- Trust strip -->
     <section class="section section--tight section--white">
       <div class="container trust-strip">

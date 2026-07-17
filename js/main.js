@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNavLink();
   setupContactForm();
   setupCarousels();
+  setupVideoToggles();
 });
 
 function setupMobileNav() {
@@ -105,5 +106,34 @@ function setupCarousels() {
 
     prevBtn.addEventListener("click", () => scrollByOneTile(-1));
     nextBtn.addEventListener("click", () => scrollByOneTile(1));
+  });
+}
+
+/**
+ * Wires up play/pause buttons for any background video that has one
+ * (currently just the ".video-feature__toggle" button in index.html's
+ * cinematic video section). Looping background video longer than 5
+ * seconds needs a way to pause it for accessibility — this toggles both
+ * the actual video playback and the button's icon/label via
+ * aria-pressed, which the CSS in styles.css uses to swap the icon.
+ */
+function setupVideoToggles() {
+  document.querySelectorAll(".video-feature__toggle").forEach((toggle) => {
+    const section = toggle.closest(".video-feature");
+    const video = section ? section.querySelector("video") : null;
+    if (!video) return;
+
+    toggle.addEventListener("click", () => {
+      const isPlaying = toggle.getAttribute("aria-pressed") === "true";
+      if (isPlaying) {
+        video.pause();
+        toggle.setAttribute("aria-pressed", "false");
+        toggle.setAttribute("aria-label", "Play background video");
+      } else {
+        video.play();
+        toggle.setAttribute("aria-pressed", "true");
+        toggle.setAttribute("aria-label", "Pause background video");
+      }
+    });
   });
 }

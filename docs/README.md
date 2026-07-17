@@ -77,30 +77,46 @@ placeholder. To use the real WHL logo:
   each product's photo is referenced from `data/products.json`, not
   hardcoded in HTML.
 
-## Replacing the Homepage Hero Video
+## Replacing Homepage Videos
 
-The homepage's big banner (`index.html`, the `.hero--video` section) plays
-`assets/video/hero-curtains.mp4` on a loop, muted, as a background — this
-is why the `<video>` tag has `autoplay muted loop playsinline`: browsers
-only allow autoplay without a click if the video is muted.
+The homepage has two background videos, both in `assets/video/`, both
+`autoplay muted loop playsinline` (browsers only allow autoplay without
+a click if the video is muted):
 
-To swap it for a different video:
+- **Top hero banner** (`.hero--video` section): `hero-curtains.mp4`.
+- **Mid-page cinematic interlude** (`.video-feature` section, between
+  "How It Works" and the trust strip): `curtains-motion.mp4`. This one
+  also has a visible play/pause button (bottom of the quote) — see
+  "Why the second video has a pause button" below.
+
+To swap either video:
 
 1. Save your new video into `assets/video/` (MP4, H.264 is the safest
    format for browser compatibility).
-2. In `index.html`, update the `<source src="..." />` line inside the
-   `.hero--video` section to point at your new filename.
+2. In `index.html`, update the matching `<source src="..." />` line to
+   point at your new filename.
 3. Update the `poster="..."` attribute on the same `<video>` tag if you
    want a different fallback image (shown while the video loads, or if
    it fails to load).
+4. For the cinematic interlude, also edit the quote text in
+   `.video-feature__quote` if it no longer fits the new video.
 
-**A note on file size**: the current hero video is ~45MB. That's under
-GitHub's hard 100MB-per-file limit, but it does mean a slower first
-load for visitors, especially on mobile connections. Before a real
-launch, consider compressing it (e.g. with [HandBrake](https://handbrake.fr/)
-or `ffmpeg`) down to a few MB — most hero background videos only need
-to be short (5–15 seconds), muted, and modest resolution (1080p is
-plenty) since they're playing small and looping behind text.
+**A note on file size**: the hero video is ~45MB — under GitHub's hard
+100MB-per-file limit, but slow to load for visitors, especially on
+mobile. The cinematic interlude video is a much more reasonable ~7MB.
+Before a real launch, consider compressing the hero video (e.g. with
+[HandBrake](https://handbrake.fr/) or `ffmpeg`) down to a few MB — most
+background videos only need to be short (5–15 seconds), muted, and
+modest resolution (1080p is plenty) since they're playing small and
+looping behind text.
+
+**Why the second video has a pause button**: looping background motion
+that lasts more than 5 seconds needs a way for visitors to stop it
+(accessibility guideline WCAG 2.2.2) — see the
+`.video-feature__toggle` button, wired up by `setupVideoToggles()` in
+`js/main.js`. If you add more background videos elsewhere, reuse the
+same `.video-feature__toggle` markup/class so the same script picks it
+up automatically.
 
 ## Replacing the Consultation Email
 

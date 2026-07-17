@@ -504,6 +504,105 @@ p {
   color: var(--color-sage-light);
 }
 
+/* -------------------------------------------------------------------------
+   Cinematic video interlude (homepage, between "How It Works" and the
+   trust strip). A quieter counterpart to the busy top-of-page hero video:
+   a large centered quote over a lightly-tinted looping video, with a
+   play/pause toggle since auto-looping background motion should always
+   be pausable (WCAG 2.2.2).
+   ------------------------------------------------------------------------- */
+.video-feature {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-deep);
+}
+
+.video-feature__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.video-feature__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(47, 78, 61, 0.55) 0%,
+    rgba(47, 78, 61, 0.35) 40%,
+    rgba(47, 78, 61, 0.65) 100%
+  );
+}
+
+.video-feature__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.video-feature__quote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  color: var(--color-cream);
+  max-width: 720px;
+  margin: 0 auto var(--space-md);
+  line-height: 1.35;
+}
+
+.video-feature__credit {
+  color: var(--color-sage);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-lg);
+}
+
+.video-feature__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(251, 247, 234, 0.5);
+  background-color: rgba(251, 247, 234, 0.12);
+  color: var(--color-cream);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.video-feature__toggle:hover {
+  background-color: rgba(251, 247, 234, 0.25);
+}
+
+.video-feature__toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.video-feature__toggle .icon-play {
+  display: none;
+}
+
+.video-feature__toggle[aria-pressed="false"] .icon-pause {
+  display: none;
+}
+
+.video-feature__toggle[aria-pressed="false"] .icon-play {
+  display: block;
+}
+
 /* Page header used on non-home pages (products/about/contact) */
 .page-header {
   padding: var(--space-xl) 0 var(--space-lg);
@@ -930,6 +1029,10 @@ p {
 
   .hero--video {
     min-height: 520px;
+  }
+
+  .video-feature {
+    min-height: 420px;
   }
 
   .hero__panel {

@@ -1,8 +1,8 @@
 /* =========================================================================
-   WHL LLC — Stylesheet
+   WHL LLC Stylesheet
    -------------------------------------------------------------------------
    How this file is organized (search for these headers):
-     1. Design tokens (colors, fonts, spacing)  — edit brand look here
+     1. Design tokens (colors, fonts, spacing). Edit brand look here
      2. Reset & base element styles
      3. Layout helpers (container, section spacing, grid)
      4. Header / navigation
@@ -568,42 +568,6 @@ p {
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: var(--space-lg);
-}
-
-.video-feature__toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1px solid rgba(251, 247, 234, 0.5);
-  background-color: rgba(251, 247, 234, 0.12);
-  color: var(--color-cream);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.video-feature__toggle:hover {
-  background-color: rgba(251, 247, 234, 0.25);
-}
-
-.video-feature__toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-.video-feature__toggle .icon-play {
-  display: none;
-}
-
-.video-feature__toggle[aria-pressed="false"] .icon-pause {
-  display: none;
-}
-
-.video-feature__toggle[aria-pressed="false"] .icon-play {
-  display: block;
 }
 
 /* Page header used on non-home pages (products/about/contact) */
@@ -675,7 +639,7 @@ p {
    Homepage "Featured Styles" carousel: a horizontally-scrolling row of
    large photo tiles. Each tile always shows its name; hovering (or
    focusing, for keyboard users) reveals a description and two buttons
-   over the photo. Used only on the homepage — the full catalog on
+   over the photo. Used only on the homepage; the full catalog on
    products.html keeps using .product-card instead, which shows price and
    description without needing a hover.
    ------------------------------------------------------------------------- */
@@ -1060,8 +1024,8 @@ p {
     font-size: 0.95rem;
   }
 
-  /* The "Window Treatments Co." subtitle is the first thing to go —
-     the icon + "WHL" alone is enough to identify the brand at this size. */
+  /* The "Window Treatments Co." subtitle is the first thing to go.
+     The icon + "WHL" alone is enough to identify the brand at this size. */
   .brand-text span {
     display: none;
   }
@@ -1104,7 +1068,8 @@ p {
 
   /* A full-size "Free Consultation" button inside the slide-out menu,
      since the header's own copy shrinks to fit next to the logo. Only
-     one is ever visible at a time — see .nav-cta-mobile below. */
+     one copy of the button is ever visible at a time (see the
+     min-width:721px rule further down, which hides this one on desktop). */
   .nav-cta-mobile {
     display: block;
     width: 100%;
@@ -1144,7 +1109,7 @@ p {
   }
 
   /* The utility topbar's two messages don't both fit on one line at
-     phone widths — stack them instead of letting them overflow. */
+     phone widths. Stack them instead of letting them overflow. */
   .topbar__inner {
     flex-direction: column;
     gap: 0.15rem;

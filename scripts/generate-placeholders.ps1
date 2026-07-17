@@ -1,5 +1,5 @@
 # One-off helper used to generate placeholder SVG images during initial
-# site setup. Not needed for day-to-day site maintenance — see
+# site setup. Not needed for day-to-day site maintenance. See
 # docs/ADDING_PRODUCTS.md for how to add real product photos instead.
 
 $products = @(
@@ -27,7 +27,7 @@ function New-PlaceholderSvg($label) {
     <text x="320" y="230" font-size="30" font-weight="700">$line1</text>
     <text x="320" y="270" font-size="30" font-weight="700">$line2</text>
   </g>
-  <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#2F4E3D">Product photo placeholder — replace me</text>
+  <text x="320" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#2F4E3D">Product photo placeholder. Replace me</text>
 </svg>
 "@
 }

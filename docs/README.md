@@ -1,4 +1,4 @@
-# WHL LLC Website — Project Guide
+# WHL LLC Website: Project Guide
 
 This is the source code for the WHL LLC marketing website: a small, plain
 HTML/CSS/JavaScript site (no build tools, no server required) with a
@@ -22,7 +22,7 @@ website/
     main.js              Mobile nav, active-link highlighting, contact form
     products.js           Loads and renders data/products.json
   data/
-    products.json         The product catalog — edit this to change products
+    products.json         The product catalog. Edit this to change products
   assets/images/
     logo/                 Site logo
     hero/                 Homepage/about banner images
@@ -33,8 +33,8 @@ website/
 ## Previewing the Site Locally
 
 Because `js/products.js` loads `data/products.json` with `fetch()`,
-**opening `index.html` by double-clicking it may show no products** —
-some browsers (Chrome especially) block local file fetches for
+**opening `index.html` by double-clicking it may show no products**.
+Some browsers (Chrome especially) block local file fetches for
 security reasons. To preview the site properly, run a simple local
 server from the `website` folder and open the printed address in your
 browser:
@@ -46,17 +46,17 @@ browser:
 - **Node** (if installed): `npx serve .`, then open the printed URL.
 
 This local-server requirement disappears once the site is hosted on
-GitHub Pages (or any real web server) — `fetch()` works normally there.
+GitHub Pages (or any real web server): `fetch()` works normally there.
 
 ## The Logo Files
 
 `assets/images/logo/` has two files, both derived from the real WHL
 logo:
 
-- **`whl-logo-full.jpg`** — the full lockup (deer/curtain mark + "WHL
+- **`whl-logo-full.jpg`**: the full lockup (deer/curtain mark + "WHL
   Window Treatments Company" + tagline), used large on `about.html`
   where there's room for the whole thing to be legible.
-- **`whl-icon.png`** — just the deer/curtain mark, cropped out of the
+- **`whl-icon.png`**: just the deer/curtain mark, cropped out of the
   full logo and padded to a square (see
   `scripts/crop-logo-icon.ps1` for exactly how, if you ever need to
   redo the crop with a different logo file). Used in the compact
@@ -73,7 +73,7 @@ background without looking like a boxed-in image.
 1. Save the new full logo into `assets/images/logo/` (JPG or PNG).
 2. Re-run `scripts/crop-logo-icon.ps1` after updating the `$srcPath`
    variable inside it to point at your new file (and re-tune the crop
-   `Rectangle` coordinates by eye — open the script's output PNG,
+   `Rectangle` coordinates by eye: open the script's output PNG,
    check it looks right, adjust, and re-run).
 3. Update the `<img src="...">` on `about.html` if you changed the
    full logo's filename.
@@ -81,28 +81,27 @@ background without looking like a boxed-in image.
 ## Replacing Photos
 
 - **About page image**: currently shows the full logo
-  (`whl-logo-full.jpg`) — replace with a real team/showroom photo by
+  (`whl-logo-full.jpg`). Replace with a real team/showroom photo by
   changing the `<img src="...">` in `about.html`'s "Rooted in Maryland"
-  section (JPG or WEBP recommended, roughly 900×700px or larger).
+  section (JPG or WEBP recommended, roughly 900x700px or larger).
 - **Homepage promo tile image**: `assets/images/hero/promo-consultation.svg`
   is a placeholder graphic behind the gallery's "Custom Fit, Every
-  Window" tile — replace it by changing the `image` value inside
+  Window" tile. Replace it by changing the `image` value inside
   `buildPromoTile()` in `js/products.js`.
-- **Product photos**: see [ADDING_PRODUCTS.md](./ADDING_PRODUCTS.md) —
-  each product's photo is referenced from `data/products.json`, not
+- **Product photos**: see [ADDING_PRODUCTS.md](./ADDING_PRODUCTS.md).
+  Each product's photo is referenced from `data/products.json`, not
   hardcoded in HTML.
 
 ## Replacing Homepage Videos
 
 The homepage has two background videos, both in `assets/video/`, both
 `autoplay muted loop playsinline` (browsers only allow autoplay without
-a click if the video is muted):
+a click if the video is muted), and neither has any pause/play control
+by design:
 
 - **Top hero banner** (`.hero--video` section): `hero-curtains.mp4`.
 - **Mid-page cinematic interlude** (`.video-feature` section, between
-  "How It Works" and the trust strip): `curtains-motion.mp4`. This one
-  also has a visible play/pause button (bottom of the quote) — see
-  "Why the second video has a pause button" below.
+  "How It Works" and the trust strip): `curtains-motion.mp4`.
 
 To swap either video:
 
@@ -110,28 +109,37 @@ To swap either video:
    format for browser compatibility).
 2. In `index.html`, update the matching `<source src="..." />` line to
    point at your new filename.
-3. Update the `poster="..."` attribute on the same `<video>` tag if you
-   want a different fallback image (shown while the video loads, or if
-   it fails to load).
+3. Add a `poster="..."` attribute on the same `<video>` tag if you want
+   a specific fallback image shown while the video loads (both
+   currently fall back to a plain background color instead).
 4. For the cinematic interlude, also edit the quote text in
    `.video-feature__quote` if it no longer fits the new video.
 
-**A note on file size**: the hero video is ~45MB — under GitHub's hard
-100MB-per-file limit, but slow to load for visitors, especially on
-mobile. The cinematic interlude video is a much more reasonable ~7MB.
-Before a real launch, consider compressing the hero video (e.g. with
-[HandBrake](https://handbrake.fr/) or `ffmpeg`) down to a few MB — most
-background videos only need to be short (5–15 seconds), muted, and
-modest resolution (1080p is plenty) since they're playing small and
-looping behind text.
+**A note on file size**: the hero video is about 45MB. That's under
+GitHub's hard 100MB-per-file limit, but slow to load for visitors,
+especially on mobile. The cinematic interlude video is a much more
+reasonable ~7MB. Before a real launch, consider compressing the hero
+video (e.g. with [HandBrake](https://handbrake.fr/) or `ffmpeg`) down
+to a few MB. Most background videos only need to be short (5 to 15
+seconds), muted, and modest resolution (1080p is plenty) since they're
+playing small and looping behind text.
 
-**Why the second video has a pause button**: looping background motion
-that lasts more than 5 seconds needs a way for visitors to stop it
-(accessibility guideline WCAG 2.2.2) — see the
-`.video-feature__toggle` button, wired up by `setupVideoToggles()` in
-`js/main.js`. If you add more background videos elsewhere, reuse the
-same `.video-feature__toggle` markup/class so the same script picks it
-up automatically.
+## Replacing Testimonials
+
+`index.html` has a "What Homeowners Say" section with three sample
+testimonial cards, each clearly labeled "(sample quote)" so they're
+never mistaken for real reviews. Before launch, replace each card's
+quote and author with a real customer review:
+
+1. Find the three `.testimonial-card` blocks inside the
+   `<!-- Testimonials -->` section of `index.html`.
+2. Replace the text inside each `.testimonial-card__quote` with the
+   real review, and each `.testimonial-card__author` with the
+   customer's name (first name + last initial is a common, privacy-
+   friendly convention, e.g. "Sarah K.") or "Verified Customer".
+3. If you have fewer than three real reviews at launch, delete the
+   extra `.testimonial-card` block(s) rather than leaving sample
+   copy live.
 
 ## Replacing the Consultation Email
 
@@ -144,7 +152,7 @@ the placeholder address `info@whlllc.com`. To update it:
   inbox address.
 - The contact page form (`contact.html` + `setupContactForm()` in
   `js/main.js`) currently just opens the visitor's email client with a
-  pre-filled message — there is no backend. When you're ready for real
+  pre-filled message; there is no backend. When you're ready for real
   form submissions (e.g. delivered straight to an inbox or CRM without
   opening the visitor's mail client), the simplest upgrade is a form
   service like Formspree: create a free account, point the `<form>`'s
@@ -154,19 +162,18 @@ the placeholder address `info@whlllc.com`. To update it:
 ## Also Update
 
 - **Phone number**: placeholder `(410) 555-0123` appears in every
-  header and footer, plus `tel:` links — search and replace.
+  header and footer, plus `tel:` links. Search and replace.
 - **Address / service area**: currently just says "Maryland, USA" in
-  the footer and contact page — add a real address if desired.
-- **About page copy**: `about.html` has several `[Placeholder — ...]`
+  the footer and contact page. Add a real address if desired.
+- **About page copy**: `about.html` has several `[Placeholder: ...]`
   paragraphs marking where to write WHL LLC's real company story and
   values.
-- **Testimonial**: `index.html` has one placeholder customer quote —
-  replace with a real review once available.
 
 ## Version Control & Hosting
 
 This project is designed to be pushed to GitHub and hosted for free via
-**GitHub Pages** (Settings → Pages → Deploy from a branch → `main` /
-root) — no build step is needed since the site is already plain static
-HTML/CSS/JS. See [ARCHITECTURE.md](./ARCHITECTURE.md) for more on this
-and on scaling the site up later.
+**GitHub Pages** (Settings, then Pages, then Deploy from a branch,
+branch `main`, folder `/` root). No build step is needed since the
+site is already plain static HTML/CSS/JS. See
+[ARCHITECTURE.md](./ARCHITECTURE.md) for more on this and on scaling
+the site up later.

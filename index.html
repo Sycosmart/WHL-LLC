@@ -64,8 +64,8 @@
   <main>
 
     <!--
-      Big video hero. The video autoplays muted/looped as a background —
-      required by browsers for autoplay to be allowed without a user click.
+      Big video hero. The video autoplays muted/looped as a background;
+      this is required by browsers for autoplay to be allowed without a user click.
       No `poster` image is set: the section's own background-color (see
       .hero--video in css/styles.css) shows while the video downloads
       instead. To swap the video later: replace
@@ -121,7 +121,7 @@
     <!--
       Featured styles carousel. Rendered by js/products.js
       (renderFeatured) as a horizontally-scrolling row of large photo
-      tiles — hover or focus a tile to reveal its description and two
+      tiles. Hover or focus a tile to reveal its description and two
       buttons. One promo tile is mixed in alongside the real products.
       Do not hand-edit tiles here: edit data/products.json (or the promo
       copy in buildPromoTile() inside js/products.js) instead. See
@@ -191,12 +191,9 @@
     <!--
       Cinematic video interlude: a quieter, quote-driven moment (as
       opposed to the busier top hero) using the second uploaded video.
-      Muted/looped for the same autoplay reasons as the hero video, but
-      with a visible play/pause toggle (setupVideoToggles() in
-      js/main.js) so visitors can stop the motion if they prefer —
-      required for accessibility since it loops longer than 5 seconds.
-      To swap the video or quote, edit the <source> and
-      .video-feature__quote text directly below.
+      Muted/looped for the same autoplay reasons as the hero video, with
+      no pause control by design. To swap the video or quote, edit the
+      <source> and .video-feature__quote text directly below.
     -->
     <section class="video-feature">
       <video
@@ -211,18 +208,9 @@
       <div class="video-feature__overlay"></div>
       <div class="container video-feature__content">
         <p class="video-feature__quote">
-          "Every window tells a story — let the right blinds write yours."
+          "Every window tells a story. Let the right blinds write yours."
         </p>
         <p class="video-feature__credit">WHL LLC &middot; Maryland</p>
-        <button
-          type="button"
-          class="video-feature__toggle"
-          aria-pressed="true"
-          aria-label="Pause background video"
-        >
-          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" /></svg>
-          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20" /></svg>
-        </button>
       </div>
     </section>
 
@@ -244,14 +232,38 @@
       </div>
     </section>
 
-    <!-- Testimonial (placeholder — replace with real customer quotes) -->
+    <!--
+      Testimonials. All three quotes below are placeholder sample copy,
+      not real reviews, marked clearly so they're never mistaken for
+      genuine customer feedback. Replace each quote/author with a real
+      review before launch. See docs/README.md, "Replacing Testimonials".
+    -->
     <section class="section">
       <div class="container">
-        <div class="card testimonial-card" style="max-width:640px; margin:0 auto; text-align:center;">
-          <p class="testimonial-card__quote">
-            "Placeholder testimonial — replace with a real customer quote once available."
-          </p>
-          <p class="testimonial-card__author">— A Maryland Homeowner</p>
+        <div class="section-heading">
+          <p class="eyebrow">Sample Testimonials</p>
+          <h2>What Homeowners Say</h2>
+          <p>Placeholder quotes below. Swap these for real reviews once you have them.</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card testimonial-card">
+            <p class="testimonial-card__quote">
+              "The consultation made choosing blinds so much easier. They measured everything themselves and installation was quick."
+            </p>
+            <p class="testimonial-card__author">A Maryland Homeowner (sample quote)</p>
+          </div>
+          <div class="card testimonial-card">
+            <p class="testimonial-card__quote">
+              "Great communication from the first call to the final install. The blinds fit perfectly and look better than what we had before."
+            </p>
+            <p class="testimonial-card__author">A First-Time Customer (sample quote)</p>
+          </div>
+          <div class="card testimonial-card">
+            <p class="testimonial-card__quote">
+              "We've used WHL for two rooms now. Same friendly service and careful work both times."
+            </p>
+            <p class="testimonial-card__author">A Repeat Customer (sample quote)</p>
+          </div>
         </div>
       </div>
     </section>
@@ -305,7 +317,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 WHL LLC. All rights reserved.</p>
-        <p>Placeholder contact details — replace before launch. See docs/README.md.</p>
+        <p>Placeholder contact details. Replace before launch. See docs/README.md.</p>
       </div>
     </div>
   </footer>

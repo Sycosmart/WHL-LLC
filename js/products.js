@@ -2,7 +2,7 @@
  * products.js
  * ---------------------------------------------------------------------
  * Loads the product catalog from data/products.json and renders it into
- * the page. This is the ONLY place that reads products.json — HTML pages
+ * the page. This is the ONLY place that reads products.json; HTML pages
  * just provide an empty container element for this script to fill in.
  *
  * Why fetch() instead of hardcoding products in HTML:
@@ -10,12 +10,12 @@
  * a product never requires touching HTML or CSS (see
  * docs/ADDING_PRODUCTS.md). It also means that later, if WHL wants a real
  * database/backend, only the URL below needs to change (e.g. from
- * "data/products.json" to "/api/products") — everything else in this file
+ * "data/products.json" to "/api/products"); everything else in this file
  * keeps working unchanged, because both return the same JSON shape.
  *
  * NOTE: Some browsers (notably Chrome) block fetch() of local files when
  * a page is opened directly via double-click (file:// URLs). Run the site
- * through a local static server while developing — see docs/README.md,
+ * through a local static server while developing. See docs/README.md,
  * "Previewing the site locally".
  * ---------------------------------------------------------------------
  */
@@ -154,7 +154,7 @@ function buildGalleryTile({
 /**
  * The one promo tile mixed into the featured carousel. Copy here is
  * hardcoded (not from products.json) since it's a promo message, not a
- * product — edit the values directly in this function to change it.
+ * product. Edit the values directly in this function to change it.
  */
 function buildPromoTile() {
   return buildGalleryTile({
@@ -264,7 +264,7 @@ function buildProductCard(product) {
  */
 function buildConsultationMailto(productName) {
   const subject = productName
-    ? `Free Consultation Request — ${productName}`
+    ? `Free Consultation Request: ${productName}`
     : "Free Consultation Request";
   return `mailto:info@whlllc.com?subject=${encodeURIComponent(subject)}`;
 }

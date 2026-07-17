@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightActiveNavLink();
   setupContactForm();
   setupCarousels();
-  setupVideoToggles();
 });
 
 function setupMobileNav() {
@@ -48,8 +47,8 @@ function highlightActiveNavLink() {
  * visitor's email client with a pre-filled message instead of posting
  * anywhere. This keeps the "Free Consultation" flow working with zero
  * server setup. See docs/README.md, "Replacing the consultation email",
- * for how to swap this for a real form service (e.g. Formspree) later —
- * only this function needs to change, the HTML form fields can stay
+ * for how to swap this for a real form service (e.g. Formspree) later.
+ * Only this function needs to change; the HTML form fields can stay
  * the same.
  */
 function setupContactForm() {
@@ -86,7 +85,7 @@ function setupContactForm() {
  * Wires up the prev/next arrow buttons on any ".gallery-carousel" (the
  * homepage's featured styles section, see index.html and
  * js/products.js). The tiles themselves scroll natively via CSS
- * (overflow-x + scroll-snap) — the buttons just nudge that scroll
+ * (overflow-x + scroll-snap); the buttons just nudge that scroll
  * position, so dragging/swiping the row still works even without them.
  * Wired up once at load time, independent of when products.js finishes
  * fetching and inserting the actual tiles.
@@ -106,34 +105,5 @@ function setupCarousels() {
 
     prevBtn.addEventListener("click", () => scrollByOneTile(-1));
     nextBtn.addEventListener("click", () => scrollByOneTile(1));
-  });
-}
-
-/**
- * Wires up play/pause buttons for any background video that has one
- * (currently just the ".video-feature__toggle" button in index.html's
- * cinematic video section). Looping background video longer than 5
- * seconds needs a way to pause it for accessibility — this toggles both
- * the actual video playback and the button's icon/label via
- * aria-pressed, which the CSS in styles.css uses to swap the icon.
- */
-function setupVideoToggles() {
-  document.querySelectorAll(".video-feature__toggle").forEach((toggle) => {
-    const section = toggle.closest(".video-feature");
-    const video = section ? section.querySelector("video") : null;
-    if (!video) return;
-
-    toggle.addEventListener("click", () => {
-      const isPlaying = toggle.getAttribute("aria-pressed") === "true";
-      if (isPlaying) {
-        video.pause();
-        toggle.setAttribute("aria-pressed", "false");
-        toggle.setAttribute("aria-label", "Play background video");
-      } else {
-        video.play();
-        toggle.setAttribute("aria-pressed", "true");
-        toggle.setAttribute("aria-label", "Pause background video");
-      }
-    });
   });
 }

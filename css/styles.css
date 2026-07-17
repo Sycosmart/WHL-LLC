@@ -189,6 +189,32 @@ p {
 /* -------------------------------------------------------------------------
    4. Header / navigation
    ------------------------------------------------------------------------- */
+
+/* Thin utility strip above the header (service area + phone/warranty note) */
+.topbar {
+  background-color: var(--color-deep);
+  color: var(--color-sage-light);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.topbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem var(--space-md);
+  gap: var(--space-sm);
+}
+
+.topbar a {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+.topbar a:hover {
+  text-decoration: underline;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -420,6 +446,62 @@ p {
 .hero__media img {
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
+}
+
+/* Big video hero (homepage). The video sits behind everything as a full-
+   bleed background; a dark gradient overlay keeps the text readable
+   regardless of what's playing underneath. */
+.hero--video {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-deep); /* shows briefly while the video loads */
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(47, 78, 61, 0.82) 0%,
+    rgba(47, 78, 61, 0.55) 45%,
+    rgba(47, 78, 61, 0.25) 100%
+  );
+}
+
+.hero--video .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__panel {
+  max-width: 560px;
+  padding: var(--space-lg) 0;
+}
+
+.hero--video .hero__eyebrow {
+  color: var(--color-sage);
+}
+
+.hero--video .hero__title,
+.hero--video .hero__title * {
+  color: var(--color-cream);
+}
+
+.hero--video .hero__text {
+  color: var(--color-sage-light);
 }
 
 /* Page header used on non-home pages (products/about/contact) */
@@ -706,6 +788,16 @@ p {
 
   .hero__actions {
     justify-content: center;
+  }
+
+  .hero--video {
+    min-height: 520px;
+  }
+
+  .hero__panel {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 

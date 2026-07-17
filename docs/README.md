@@ -71,10 +71,36 @@ placeholder. To use the real WHL logo:
 - **Hero/banner images**: replace `assets/images/hero/hero-home.svg` with
   a real photo (JPG or WEBP recommended, roughly 900×700px or larger),
   keeping the same filename, or use a new filename and update the
-  `<img src="...">` reference in `index.html` / `about.html`.
+  `<img src="...">` reference in `about.html`. (The homepage hero uses a
+  video instead — see below.)
 - **Product photos**: see [ADDING_PRODUCTS.md](./ADDING_PRODUCTS.md) —
   each product's photo is referenced from `data/products.json`, not
   hardcoded in HTML.
+
+## Replacing the Homepage Hero Video
+
+The homepage's big banner (`index.html`, the `.hero--video` section) plays
+`assets/video/hero-curtains.mp4` on a loop, muted, as a background — this
+is why the `<video>` tag has `autoplay muted loop playsinline`: browsers
+only allow autoplay without a click if the video is muted.
+
+To swap it for a different video:
+
+1. Save your new video into `assets/video/` (MP4, H.264 is the safest
+   format for browser compatibility).
+2. In `index.html`, update the `<source src="..." />` line inside the
+   `.hero--video` section to point at your new filename.
+3. Update the `poster="..."` attribute on the same `<video>` tag if you
+   want a different fallback image (shown while the video loads, or if
+   it fails to load).
+
+**A note on file size**: the current hero video is ~45MB. That's under
+GitHub's hard 100MB-per-file limit, but it does mean a slower first
+load for visitors, especially on mobile connections. Before a real
+launch, consider compressing it (e.g. with [HandBrake](https://handbrake.fr/)
+or `ffmpeg`) down to a few MB — most hero background videos only need
+to be short (5–15 seconds), muted, and modest resolution (1080p is
+plenty) since they're playing small and looping behind text.
 
 ## Replacing the Consultation Email
 

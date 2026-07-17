@@ -22,6 +22,18 @@
     See docs/ARCHITECTURE.md for why, and when it's worth switching to a
     templating tool instead.
   -->
+  <!--
+    Thin utility strip above the header, inspired by the "SUPPORT - LIFETIME
+    WARRANTY" bar on reference sites like blindstogo.com. Edit the two
+    messages below directly; repeated on every page alongside the header.
+  -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <span>Serving Homes Across Maryland</span>
+      <span>Questions? Call <a href="tel:+14105550123">(410) 555-0123</a></span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand">
@@ -50,10 +62,27 @@
 
   <main>
 
-    <!-- Hero: primary headline + two CTAs + hero image -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__content">
+    <!--
+      Big video hero. The video autoplays muted/looped as a background —
+      required by browsers for autoplay to be allowed without a user click.
+      `poster` shows while the video downloads (and if video can't load).
+      To swap the video later: replace assets/video/hero-curtains.mp4 and
+      update the <source> below. See docs/README.md, "Replacing photos".
+    -->
+    <section class="hero hero--video">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/images/hero/hero-home.svg"
+      >
+        <source src="assets/video/hero-curtains.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__video-overlay"></div>
+      <div class="container">
+        <div class="hero__panel">
           <p class="hero__eyebrow">Serving Maryland Homes</p>
           <h1 class="hero__title">Custom Blinds, Inspired by Nature</h1>
           <p class="hero__text">
@@ -63,11 +92,8 @@
           </p>
           <div class="hero__actions">
             <a href="mailto:info@whlllc.com?subject=Free%20Consultation%20Request" class="btn btn--primary">Free Consultation</a>
-            <a href="products.html" class="btn btn--secondary">View Blinds</a>
+            <a href="products.html" class="btn btn--light">View Blinds</a>
           </div>
-        </div>
-        <div class="hero__media">
-          <img src="assets/images/hero/hero-home.svg" alt="Living room with newly installed blinds (placeholder image)" />
         </div>
       </div>
     </section>

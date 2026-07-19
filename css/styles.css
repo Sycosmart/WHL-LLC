@@ -11,7 +11,8 @@
      7. Cards (product cards, tile cards)
      8. Process steps / trust strip / testimonials
      9. Footer
-    10. Responsive breakpoints
+    10. One-off page components (About/Contact specifics)
+    11. Responsive breakpoints
 
    This is one shared stylesheet used by every page (index, products, about,
    contact) so a change here updates the whole site at once.
@@ -1013,7 +1014,77 @@ p {
 }
 
 /* -------------------------------------------------------------------------
-   10. Responsive breakpoints
+   10. One-off page components
+   Small, page-specific classes that replace inline styles, keeping all
+   presentation in this one file (see docs/ARCHITECTURE.md).
+   ------------------------------------------------------------------------- */
+
+/* Footer wordmark: reuses .brand-text but recolored for the dark footer
+   background (index/products/about/contact footers all use this). */
+.footer-brand .brand-text {
+  color: var(--color-cream);
+}
+
+.footer-brand .brand-text span {
+  color: var(--color-sage);
+}
+
+/* Centers a single call-to-action link/button below a section
+   (used under the homepage's featured styles carousel). */
+.centered-action {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+/* Vertically centers a two-column grid's content (About page intro). */
+.grid--middle {
+  align-items: center;
+}
+
+/* Adds spacing above body paragraphs that follow a heading, and
+   between consecutive paragraphs (About page intro text). */
+.text-stack h2 + p,
+.text-stack p + p {
+  margin-top: var(--space-sm);
+}
+
+/* A photo styled like a framed card: rounded corners, shadow, capped
+   width, centered (About page logo/photo). */
+.framed-image {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  max-width: 420px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* A .card used to hold a form, with its own padding (Contact page). */
+.form-card {
+  padding: var(--space-lg);
+}
+
+.form-card h2 {
+  margin-bottom: var(--space-md);
+}
+
+/* The "Other Ways to Reach Us" contact list (Contact page). */
+.contact-info p {
+  margin-top: var(--space-sm);
+}
+
+.contact-info ul {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.contact-info strong {
+  color: var(--color-deep);
+}
+
+/* -------------------------------------------------------------------------
+   11. Responsive breakpoints
    ------------------------------------------------------------------------- */
 @media (max-width: 960px) {
   .grid--4 {

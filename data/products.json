@@ -52,5 +52,32 @@
     "priceLabel": "Starting at $119",
     "image": "assets/images/products/room-darkening.svg",
     "featured": false
+  },
+  {
+    "id": "genuine-wood",
+    "name": "Genuine Wood Blinds",
+    "category": "Blinds",
+    "description": "Real hardwood slats for a premium, natural look and feel that faux wood can't quite match.",
+    "priceLabel": "Starting at $159",
+    "image": "assets/images/products/genuine-wood.svg",
+    "featured": false
+  },
+  {
+    "id": "mini-blinds",
+    "name": "Mini Blinds",
+    "category": "Blinds",
+    "description": "Slim 1-inch aluminum slats: a classic, budget-friendly choice that fits neatly into smaller windows.",
+    "priceLabel": "Starting at $59",
+    "image": "assets/images/products/mini-blinds.svg",
+    "featured": false
+  },
+  {
+    "id": "two-tone-blinds",
+    "name": "Two-Tone Decorative Blinds",
+    "category": "Blinds",
+    "description": "Alternating light and dark slats add a subtle decorative pattern to any window.",
+    "priceLabel": "Starting at $135",
+    "image": "assets/images/products/two-tone-blinds.svg",
+    "featured": false
   }
 ]

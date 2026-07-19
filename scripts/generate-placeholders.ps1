@@ -8,7 +8,10 @@ $products = @(
   @{ file = "vertical-sliding-door.svg"; label = "Vertical Blinds" },
   @{ file = "cordless-blinds.svg";       label = "Cordless Blinds" },
   @{ file = "motorized-smart.svg";       label = "Motorized Smart Blinds" },
-  @{ file = "room-darkening.svg";        label = "Room-Darkening Blinds" }
+  @{ file = "room-darkening.svg";        label = "Room-Darkening Blinds" },
+  @{ file = "genuine-wood.svg";          label = "Genuine Wood Blinds" },
+  @{ file = "mini-blinds.svg";           label = "Mini Blinds" },
+  @{ file = "two-tone-blinds.svg";       label = "Two-Tone Decorative Blinds" }
 )
 
 $outDir = Join-Path $PSScriptRoot "..\assets\images\products"

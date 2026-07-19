@@ -141,6 +141,30 @@ quote and author with a real customer review:
    extra `.testimonial-card` block(s) rather than leaving sample
    copy live.
 
+## Editing the FAQ
+
+`products.html` has a "Frequently Asked Questions" section built from
+plain `<details>`/`<summary>` elements (native, expandable HTML with no
+JavaScript needed). The current questions are general starter content,
+written to be true for most window-treatment businesses, but written
+before Louis confirmed the specifics of his own process. Once he does,
+update the answers for accuracy:
+
+1. Find the `.faq-list` block inside the `<!-- FAQ -->` section of
+   `products.html`.
+2. Each question is one `<details class="faq-item">` block. Edit the
+   text inside `.faq-item__question` (the question) and
+   `.faq-item__answer` (the answer).
+3. To add a new question, copy an existing `<details class="faq-item">`
+   block (including its chevron `<svg>`) and edit the text.
+4. To remove a question, delete its whole `<details>...</details>`
+   block.
+
+Particularly worth confirming with Louis: exact measuring/installation
+process, typical turnaround time, warranty terms (not currently
+mentioned since they weren't confirmed), and the specific counties/
+cities covered.
+
 ## Replacing the Consultation Email
 
 Every "Free Consultation" button and the contact form currently point to
